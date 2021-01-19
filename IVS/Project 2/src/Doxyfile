@@ -1,0 +1,15 @@
+# Doxygen config file
+
+DOXYFILE_ENCODING       = UTF-8
+INPUT_ENCODING          = UTF-8
+
+PROJECT_NAME           = IVS Calculator
+PROJECT_NUMBER         = 1.0
+
+OUTPUT_DIRECTORY       = ../doc
+
+OUTPUT_LANGUAGE        = English
+
+GENERATE_LATEX         = NO
+
+OPTIMIZE_OUTPUT_JAVA   = YES    # Recomended in Doxygen documentation

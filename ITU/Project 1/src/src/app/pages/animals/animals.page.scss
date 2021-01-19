@@ -1,0 +1,71 @@
+@import "../../colors.scss";
+
+.animals{
+    padding: 0 25px;
+    .qr-manually{
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        .input{
+            width: 100%;
+            padding: 15px 50px 15px 50px;
+            border: none;
+            background: $very-light-gray;
+            border-radius: 15px;
+            color: $gray;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .input::placeholder{
+            color: $light-gray;
+        }
+        .icon{
+            color: $gray;
+            position: absolute;
+            font-size: 25px;
+            left: 15px;
+        }
+        .validate{
+            width: 55px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            border-radius: 15px;
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $gray;
+        }
+    }
+    .animals-block{
+        margin-top: 30px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        li{
+            width: calc(50% - 10px);
+            height: 145px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            background: green;
+            background-position: center;
+            background-size: cover;
+            box-shadow: 0px 5px 10px -2px $gray;
+            position: relative;
+            overflow: hidden;
+
+            .heading{
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding: 5px 10px;
+                background: white;
+
+            }
+        }
+        
+
+    }
+}

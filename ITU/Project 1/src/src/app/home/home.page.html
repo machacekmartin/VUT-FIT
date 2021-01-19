@@ -1,0 +1,59 @@
+<div class="pack-main" [class.menuOpen]="getIsMenuOpen()==true">
+<div class="pack">
+  <div class="overflow-click" (click)="toggleMenu()"></div>
+  <ul id ="menu" class="flex-row" >
+    <li class="menu-icon" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+    </li>
+    <li routerLink="/scan" class="qr-scanner">
+      <div class="icon"></div>
+    </li>
+  </ul>
+  <section class="home"  [class.controls-active]="this.playerService.isPlayerReady()">
+    <div id="content" class="flex-column">
+      <h1 class="header">Zoo's Overview</h1>
+      <ul class="selector heading flex-row">
+        <li class="item" [class.underline]="isAnimals==true"  (click)="changeView('animals')"><h6>nearest animals</h6></li>
+        <li class="item" [class.underline]="isEvents==true" (click)="changeView('events')"><h6>upcoming events</h6></li>
+      </ul>
+      <!-- NG IF IS IMPORTANT TO SWITCH CONTENT ON CLICK -->
+      <ul class="banner-panel flex-row" *ngIf="isAnimals">
+        <li *ngFor="let kind of threeAnimalKinds" class="item" [ngStyle]="{'background-image': 'url(../../' + kind.image + ')'}" routerLink="/animal-kind" (click)="setAnimalKind(kind.type)">
+          <h5 class="heading">{{kind['type']}}</h5>
+        </li>
+        <li class="item heading" routerLink="/animals"><h5>Show all animals in our Zoo</h5></li>
+      </ul>
+  
+      <ul class="banner-panel flex-row" *ngIf="isEvents">
+        <li *ngFor="let event of threeEvents" class="item" [ngStyle]="{'background-image': 'url(../../' + event.image + ')'}" routerLink="/event">
+          <h5 class="heading">{{event['name']}}</h5>
+        </li>
+        <li class="item heading" routerLink="/events"><h5>Show all events in our Zoo</h5></li>
+      </ul>
+      <!--------------------------------------------------->
+      <div class="map-link flex-row" routerLink="/map">
+        <h3 class="heading">Map of the Zoo</h3>
+        <div class="button">
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </div>
+      </div>
+      <div class="history flex-column">
+        <h3 class="heading">History</h3>
+        <p class="history-text">
+          Whereas you can display only limited text on  
+          wall banners, smartphones provide the  opportunity 
+          to engage visitors on many  aspects of animals life 
+          with text, pictures,  audio and video visitors on 
+          many aspects of.
+        </p>
+        <h4 routerLink="/history" class="more">. . .</h4>
+      </div>
+    </div>
+  </section>
+</div>
+<app-sidemenu [class.menuOpen]="getIsMenuOpen() == true"></app-sidemenu>
+</div>
+
+
+

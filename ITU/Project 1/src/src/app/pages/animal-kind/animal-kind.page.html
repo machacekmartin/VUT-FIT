@@ -1,0 +1,49 @@
+<ul id ="menu" class="flex-row" >
+  <li (click)="goBack()" class="back">
+    <span></span>
+    <span></span>
+  </li>
+  <li class=""></li>
+</ul>
+<section class="animal-kind">
+  <div class="map-location"> </div>
+  
+  <div class="animal-pack flex-column">
+      <div class="image" [ngStyle]="{'background-image': 'url(../../' + animalKind['image'] + ')'}"> 
+      </div>
+      <div class="kind">
+          <h1 class="header">{{animalKind['type']}}</h1>
+          <ul class="info">
+            <li><p> Origin: <span>{{animalKind['origin']}}</span></p></li>
+            <li><p> Temper: <span>{{animalKind['temper']}}</span></p></li>
+            <li><p> Grown weight: <span>{{animalKind['grownweight']}}</span></p></li>    
+            <li><p> Feeding time: <span>{{animalKind['feeding']}}</span></p></li>            
+          </ul>
+      </div>
+      
+      <div class="play-button">
+        <div *ngIf="areTracksEqual() && isPlayingAudio()" (click)="toggleAudio()" class="pause">
+        </div>
+        <div *ngIf="areTracksEqual() && !isPlayingAudio()" (click)="toggleAudio()" class="play-icon resume"></div>
+        <div *ngIf="!areTracksEqual()" (click)="playAudio()"class="play-icon"></div>
+      </div>
+  </div>
+</section>
+  <div class="concrete-animals" [class.controls-active]="this.playerService.isPlayerReady()">
+      <h3 class="heading">Our {{animalKind['type'] | lowercase}}</h3>
+      <ul class="concrete-list flex-column">
+          <li *ngFor="let animal of animalKind.animals" class="item flex-row">
+              <img src="../../../{{animal.image}}" class="image">
+              <div class="concrete-animal-info flex-column">
+                <div class="flex-row basic">
+                    <h5 class="name">{{animal.name}}</h5>
+                    <p class="gender">{{animal.gender}}</p>
+                </div>
+                <p class="age">age: {{animal.age}}</p>
+                <div class="play-sound" (click)="playShortAudio(animal.audio)">
+                  <ion-icon name="volume-high"></ion-icon>
+                </div>
+              </div>
+          </li>  
+      </ul>
+  </div>

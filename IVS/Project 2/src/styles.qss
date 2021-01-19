@@ -1,0 +1,77 @@
+/*
+    background: #FEFEFE;
+    border: #CCCCCC;
+    num border: #AAAAAA;
+    textcolor: #333333;
+    eq background: #555555;
+    hover color: #0F4C81;
+    clear hover color: #FC5185;
+*/
+*[cssClass="body"]{
+    background-color: #FEFEFE;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+*[cssClass="display"]{
+    background: transparent;
+    border: none;
+    font-size: 50px;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 25px;
+}
+*[cssClass="expression-display"]{
+    background: transparent;
+    font-size: 35px;
+    border: none;
+    color: #CCCCCC;
+    padding-top: 20px;
+}
+
+QPushButton{
+    margin: 0px;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    border: 1px solid #CCCCCC;
+    color: #333333;
+    width: 50px;
+    min-height: 70px;
+    min-width: 125px;
+}
+QPushButton#clear{
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+    margin-bottom: 20px;
+}
+QPushButton:hover{
+    background: #0F4C81;
+    color: white;
+    border: none;
+}
+QPushButton#num{
+    border: 1px solid #AAAAAA;
+}
+QPushButton#num:hover{
+    background: #666;
+}
+QPushButton#clear:hover, QPushButton#delete:hover{
+    background: #FC5185;
+}
+QPushButton#eval{
+    border: 1px solid #666;
+    background: #666666;
+    color: white;
+}
+QPushButton#eval:hover{
+    background: #0F4C81;
+    color: white;
+    border-color: #0F4C81;
+}
+
+
+

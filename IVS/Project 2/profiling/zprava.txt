@@ -1,0 +1,17 @@
+Zpráva z profilingu
+David Gajdoš
+13. duben 2020
+
+Výstupy: /profiling/vystup.pdf (nachází se zde obrázky, na něž se v textu odkazuji)
+
+1.Úvod
+Úkolem bylo implementovat výpočet směrodatné odchylky podle zadaného vzorce a na základě doby výpočtu profilovat matematickou knihovnu. Pro implementaci byly využity funkce z námi naprogramované matematické knihovny "matlib.py". Program pro výpočet směrodatné odchylky je potom k nalezení v src/stddev.py, popřípadě možno spustit jako "make profile < 'fileWithNumbers.*'" 
+
+2.Popis
+Provedl jsem tři "běhy" profilování. S 10,100 a 1000 náhodně vygenerovanými celými čísly (profiler přijímá samozřejmě i čísla s pohyblivou řádovou čárkou). Přesnost měření byl stanovena na tisíciny sekundy.
+	V prvním běhu s 10 vzorky se celkový čas provedení pohyboval maximálně v desetitisícinách sekund, tudíž je čas provedení téměr nulový. Na obrázku 2 lze vidět graf volání funkcí, tj. které funkce byly vyvolány kterou jinou funkcí, počet volání a čas strávený v jednotlivých funkcích. Tento textový graf je následně i převeden do vizuální podoby na obrázku 3.
+	První a druhý běh nejsou příliš zajímavé, neboť jejich celkový čas trvání je příliš malý. Zajímavý je až běh třetí, který byl proveden s 1000 vzorky a trval 22ms. V tomto běhu si lze povšimnout, že je příliš velký počet volání vestavěné funkce "isinstance". Funkce "isinstance" je téměř ve všech funkcích matematické knihovny a kontroluje datové typy předaných parametrů. Na obrázku 9 ve stromovém grafu volání vypadly oproti grafu 3 některé funkce. Nepodařilo se mi je do grafu dostat, domnívám se, že při konverzi program považoval čas strávený v jednotlivých funkcích (např. divide, multiply, apod.) za tak malý, že funkce nezahrnul do výsledného grafu. Volání těchto funkcí lze každopádně vidět na obrázku 8.
+
+3.Závěr
+Jak jsem již zmiňoval v odstavci výše, stěžejní je volání funkce "isinstance", která je zavolána 6n+12 krát (kde n je počet čísel na vstupu profileru). Čas strávený vykonáváním funkce "isinstance" je skoro třetina celkového času výpočtu směrodatné odchylky, což je poměrně velká část. Například při 10 000 vzorcích stráví z celkových 217ms výpočtu 65ms vykonávání funkce "isinstance". Další funkce zabírající většinu času jsou funkce "pow" pro výpočet druhé mocniny čísla a "add" pro sumu všech čísel. Tyto dvě volané funkce nemůžu nijak ovlivnit, neboť jsou spíše problémem implementace směrodatné odchylky než matematické knihovny. Počet volání funkce "add" je vždy 2n, protože počítám sumu všech čísel a sumu druhých mocnin.
+	Mnou navrhované řešení pro zrychlení kódu je využít typové nápovědy v definicích funkcí, které by eliminovaly volání funkce "isinstance". Tímto by se čas provedení zrychlil minimálně o třetinu.

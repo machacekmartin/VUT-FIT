@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Soul Bakery</title>
+        <!-- Stylovy predpis - projekt ITW1 -->
+        <link rel="stylesheet" href="itw1.css">
+        <!-- font-awesome pro ikony (třídy fas, far, fab, fa-*) -->
+        <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+		<!-- Použitý font 'Crimson Text' a 'Lobster' -->
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <nav id="navbar">
+                <div class="menu">
+                    <h1 class="logo"><a href="itw1.html"><span>Soul Bakery</span></a></h1>
+                    <div class="menu-left">
+                    	<ul> 
+	                    	<li><a href="#">Home</a></li>
+		                    <li><a href="#">Features</a></li>
+		                    <li><a href="#">Our Menus</a></li>
+						</ul>
+                    </div>
+                    <div class="menu-right">
+                    	<ul> 
+	                    	<li><a href="#">Events</a></li>
+		                    <li><a href="#">Our Services</a></li>
+		                    <li><a href="#">Contact</a></li>
+		                </ul>
+                    </div> 
+                </div>
+            </nav>
+            <section id="page-title">
+                <h1>Contact us</h1>
+                <p class="breadcrumb">
+                    Home >> Pages >> Contact us
+                </p>
+            </section>
+        </header>
+        <div id="main">
+            <div class="main-text row">
+                <h1>We would love to hear from you</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="main-map row">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2605.6299855086822!2d16.594932815687446!3d49.22654397932527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbfcf161b01a48b0d!2zVnlzb2vDqSB1xI1lbsOtIHRlY2huaWNrw6kgQnJubyAtIEZha3VsdGEgaW5mb3JtYcSNbsOtY2ggdGVjaG5vbG9nacOt!5e0!3m2!1scs!2scz!4v1520419475516" frameborder="0" style="border:0; width: 100%; height: 450px" allowfullscreen></iframe>
+            </div>
+            <div class="contacts row">
+                <div class="form box">
+                    <h2><i class="fas fa-envelope"></i> Contact Form</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="row">
+                        <div class="left">
+                            <input type="text" placeholder="Your name..." name="">
+                        </div>
+                        <div class="right">
+                            <input type="email" placeholder="Email..." name="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="left">
+                            <input type="text" placeholder="Phone..." name="">
+                        </div>
+                        <div class="right">
+                            <input type="email" placeholder="Subject..." name="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="left">
+                            <label>Your inquiry type:<br>
+                                <input type="radio" name="type" value="question"> Question<br>
+                                <input type="radio" name="type" value="suggestion"> Suggestion<br>
+                                <input type="radio" name="type" value="other"> Other
+                            </label>
+                        </div>
+                        <div class="right">
+                            <label>Your favourite cake:<br>
+                                <input type="checkbox" name="cake" value="chese"> Cheesecake<br>
+                                <input type="checkbox" name="cake" value="apple"> Apple cake<br>
+                                <input type="checkbox" name="cake" value="chocolate"> Chocolate cake
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <textarea rows="7" class="textarea" placeholder="Your message..." name=""></textarea>
+                    </div>
+                    <div class="row bottom-row">
+                        <button class="submit" type="submit">Submit</button>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="box">
+                        <h2><i class="far fa-id-card"></i> Contact Information</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <br></br>
+                        <p>
+                            <i>Phone:</i> <a href="tel: +123456789">+123456789</a><br>
+                            <i>Email:</i> <a href="mailto: info@email.com">info@email.com</a><br>
+                            <i>Website:</i> <a target="_blank" href="http://www.site.com">www.site.com</a><br>
+                        </p>
+                    </div>
+                    <div class="box">
+                        <h2><i class="far fa-share-square"></i> Follow Us On</h2>
+                        <div class="sidebar-social social">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-square"></i></a>
+                            <a href="#"><i class="fab fa-twitter-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="newsletter box row">
+                <h2><i class="fas fa-rss-square"></i> Join our newsletter</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                <p>
+                    <input type="text" placeholder="Enter your email" name="">
+                    <button class="submit">Subscribe</button>
+                </p>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="main">
+                <div class="hours">
+                	<div class="inner">
+	                    <div class="footer-title">
+	                        Opening Hours
+	                    </div>
+	                    <div class="footer-content">
+	                        <table>
+	                            <tr>
+	                                <td>Monday</td><td>8:00 am &ndash; 11:00 pm</td>
+	                            </tr>
+	                            <tr>
+	                                <td>Tuesday</td><td>8:00 am &ndash; 11:00 pm</td>
+	                            </tr>
+	                            <tr>
+	                                <td>Wednesday</td><td>8:00 am &ndash; 11:00 pm</td>
+	                            </tr>
+	                            <tr>
+	                                <td>Thursday</td><td>8:00 am &ndash; 11:00 pm</td>
+	                            </tr>
+	                            <tr>
+	                                <td>Friday</td><td>8:00 am &ndash; 11:00 pm</td>
+	                            </tr>
+	                            <tr>
+	                                <td>Saturday</td><td>8:00 am &ndash; 11:00 pm</td>
+	                            </tr>
+	                            <tr>
+	                                <td>Sunday</td><td>8:00 am &ndash; 11:00 pm</td>
+	                            </tr>
+	                        </table>
+	                    </div>
+                	</div>
+                </div>
+                <div class="about">
+                	<div class="inner">
+                        <div class="footer-title">
+                            Soul Backery
+                        </div>
+                        <div class="footer-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p class="social">
+                                <i class="fab fa-facebook"></i>
+                                <i class="fab fa-google-plus-square"></i>
+                                <i class="fab fa-twitter-square"></i>
+                                <i class="fas fa-rss-square"></i>
+                            </p>
+                        </div>
+                	</div>
+                </div>
+                <div class="menu">
+                	<div class="inner">
+                		<div class="footer-title">
+	                        Site Menu
+	                    </div>
+	                    <div class="footer-content">
+	                        <ul>
+	                            <li><a href="#">Home</a></li>
+	                            <li><a href="#">Features</a></li>
+	                            <li><a href="#">Our Menus</a></li>
+	                            <li><a href="#">Events</a></li>
+	                            <li><a href="#">Our Services</a></li>
+	                            <li><a href="#">Contact</a></li>
+	                        </ul>
+	                    </div>
+                	</div>
+                    
+                </div>
+            </div>
+	        <div id="copyright">
+                <p>&copy; Copyright 2018. Soul Bakery VUT FIT</p>
+	        </div>
+        </footer>
+    </body>
+</html>

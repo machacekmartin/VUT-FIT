@@ -1,0 +1,743 @@
+/* PROJEKT2 - XMACHA73 */
+
+/*
+  WHY CANT WE USE PHP THO?
+  .NOT RESPONSIVE.
+
+  THESE STYLES ARE FOR SHARED ELEMENTS
+  ALL SECTION HEADERS EXCEPT BANNERS
+  ITEMS INSIDE SECTIONS, THEIR PADDINGS, FONTS...
+*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  color: #333;
+  text-align: center;
+  font-family: 'Tajawal';
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+ul{
+  list-style-type: none;
+}
+section{
+  min-width: 1100px;
+}
+section > header:not(.banner_head){
+  font-family: 'Roboto';
+  text-transform: uppercase;
+  font-size: 1.2em;
+  padding: 60px 0 50px 0;
+}
+section > header:not(.banner_head) h1{
+  display: inline-block;
+}
+section > header:not(.banner_head):after{
+  height: 2px;
+  width: 120px;
+  margin: 0 auto;
+  display: block;
+  content: '';
+  background: #526979;
+}
+section:not(#best) .item{
+  box-shadow: 0px 15px 15px -10px #ccc;
+  transition: 0.4s;
+  background: #eee;
+}
+section:not(#best) .item:hover{
+  box-shadow: 0px 30px 30px -20px #ccc;
+  transform: translateY(-5px);
+}
+section .box{
+  display: flex;
+  justify-content: space-between;
+}
+section .item .description{
+  padding: 20px 15px;
+}
+section:not(:first-child) h1, section .item .button p{
+  font-family: 'Roboto';
+}
+section .item p, section .rating, section .price{
+  padding: 10px 0;
+}
+section .rating{
+  display: block;
+  color: #526979;
+}
+section .price{
+  font-size: 1em;
+  font-weight: bold;
+}
+section .button {
+  margin: 10px 0;
+  padding: 0px 35px;
+  display: inline-block;
+  border: solid 1px #333;
+  transition: 0.2s;
+}
+section .button:hover {
+  background: #526979;
+  color: white;
+  border-color: #526979;
+}
+section .button p{
+  font-family: 'Roboto';
+}
+body:not(.home) section header{
+  font-size: 1.5em;
+}
+
+/* MENU STYLES */
+#menu{
+  background: white;
+  font-family: 'Poiret One';
+  font-weight: bold;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
+#menu + section{
+  margin-top: 130px;
+}
+#menu .menu_links{
+  width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  position: relative;
+}
+#menu .menu_links .logo{
+  text-align: left;
+  border: solid 1px #333;
+  border-bottom: none;
+  max-height: 120px;
+  overflow: hidden;
+  transition: 0.4s;
+}
+#menu .menu_links .logo h1{
+  padding: 10px 15px;
+}
+#menu .menu_links .logo h4{
+  text-align: center;
+  font-family: 'Tajawal';
+  padding: 0px 15px 0px 15px;
+}
+#menu .menu_links .main_nav{
+  font-size: 1em;
+  text-transform: uppercase;
+}
+#menu .menu_links .main_nav > li {
+  display: inline-block;
+  margin: 0px 35px;
+  position: relative;
+}
+#menu .menu_links .main_nav > li:last-child{
+  margin-right: 0;
+}
+#menu .menu_links .main_nav > li a{
+  padding: 5px 0;
+}
+#menu .menu_links .main_nav > li > a::after{
+  display: block;
+  content: '';
+  background: #333;
+  height: 1px;
+  width: 0%;
+  transition: 0.4s;
+}
+#menu .menu_links .main_nav > li > a:hover::after{
+  width: 100%;
+}
+#menu .menu_links .dropdown {
+  cursor: pointer;
+}
+#menu .menu_links .dropdown ul{
+  position: absolute;
+  background: white;
+  max-height: 0;
+  min-width: 160px;
+  overflow: hidden;
+  transition: 0.4s;
+  right: 0;
+}
+#menu .menu_links .dropdown:hover > ul{
+  max-height: 165px;
+}
+#menu .menu_links .dropdown li a{
+  display: block;
+  transition: 0.1s;
+  padding: 15px 40px;
+  border: solid 1px #333;
+  border-top: none;
+}
+#menu .menu_links .dropdown li a:hover{
+  background: #eee;
+}
+#menu .menu_links .logo_scrolled{
+  position: absolute;
+  opacity: 0;
+  transition: 0.4s;
+  left: 0;
+}
+#menu.scrolled .menu_links .logo{
+  transition: 0.4s;
+  opacity: 0;
+  max-height: 0;
+}
+#menu.scrolled .menu_links .logo_scrolled{
+  opacity: 1;
+}
+
+/* BANNER STYLES */
+#banner{
+  background-color: #333;
+  background-image: url('img/banner_7.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Roboto';
+  height: 80vh;
+}
+#banner header{
+  width: 1100px;
+  margin: 0 auto;
+  font-size: 2.8em;
+  text-align: right;
+}
+#banner header h1{
+  padding: 20px 20px 20px 120px;
+  display: inline-block;
+  background: white;
+}
+
+/* LATEST PROPERTIES STYLES*/
+#latest {
+  width: 1100px;
+  margin: 0 auto;
+}
+#latest .box .item, #properties .box .item{
+  width: 32%;
+}
+#latest .box .item .image, #properties .box .item .image {
+  width: 100%;
+  overflow: hidden;
+  height: 220px;
+}
+#latest .box .item .image img, #properties .box .item img{
+  width: 352px;
+  height: 100%;
+}
+
+/* BEST PROPERTY STYLES*/
+#best .box{
+  background: #eee;
+  min-width: 1100px;
+}
+#best .item{
+  width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+#best .item .image{
+  width: 60%;
+}
+#best .item .image img{
+  width: 100%;
+}
+#best .item .description{
+  width: 35%;
+}
+#best .item .description h1{
+  font-size: 2em;
+}
+
+/* OUR SERVICES STYLES*/
+#services h3{
+  font-family: 'Roboto';
+  padding: 20px 0;
+  display: block;
+}
+#services h3::after{
+  display: block;
+  content: '';
+  height: 3px;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 10px;
+  transition: 0.4s;
+  background: #eee;
+}
+#services p{
+  font-family: 'Tajawal';
+}
+#services .box{
+  justify-content: space-between;
+  padding-bottom: 80px;
+}
+#services .box .service{
+  width: 32%;
+  padding: 80px 55px;
+  border: solid 1px #eee;
+  transition: 0.4s;
+}
+#services .box .service:nth-child(2){
+  margin: 0 20px;
+}
+#services .box .service:hover {
+  box-shadow: inset 3px 3px 0px 3px #526979;
+}
+#services .box .service:hover i{
+  color: #526979;
+}
+#services .box .service:hover h3::after{
+  width: 70%;
+  background: #526979;
+}
+#services .box i{
+  color: #333;
+  font-size: 5em;
+  transition: 0.5s;
+}
+
+/* REVIEWS STYLES */
+#reviews{
+  background-color: #333;
+  background-image: url('img/banner_low.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  min-height: 550px;
+}
+#reviews header:after{
+  background: white;
+}
+#reviews .box, #services .box{
+  width: 1100px;
+  margin: 0 auto;
+}
+#reviews .review{
+  width: 30%;
+  padding: 10px 20px;
+}
+#reviews .review i{
+  padding: 10px;
+}
+#reviews .review .name{
+  font-family: 'Roboto';
+  padding: 10px 0;
+}
+#reviews .review .text{
+  max-height: 100px;
+  padding: 5px 10px;
+  transition: 0.5s;
+  overflow: hidden;
+}
+#reviews .review .clicked{
+  max-height: 220px;
+}
+#reviews .review .more{
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+  border: solid 1px white;
+  padding: 2px 20px;
+  transition: 0.1s;
+}
+#reviews .review .more:hover{
+  color: #333;
+  background: white;
+}
+
+/* PROPERTIES STYLES*/
+#properties{
+  background: #eee;
+  font-family: 'Tajawal';
+}
+#properties .sorting_options{
+  text-align: right;
+}
+#properties h3, #properties .options a{
+  display: inline-block;
+  margin-right: 25px;
+}
+#properties .options{
+  width: 1100px;
+  margin: 0 auto;
+}
+#properties .options a{
+  border-bottom: solid 1px #333;
+}
+#properties .options a:hover{
+  color: #526979;
+}
+#properties .sorting_list{
+  flex-wrap: wrap;
+  width: 1100px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-bottom: 100px;
+}
+#properties .sorting_list::after{
+   content: '';
+   width: 32%;
+}
+#properties .sorting_list .item{
+  margin-top: 25px;
+  background: white;
+}
+
+/* SINGLE PROPERTY STYLES */
+#single_property{
+  padding: 25px 0 100px 0;
+  background: #eee;
+}
+#single_property .property_main{
+  width: 1100px;
+  margin: 0 auto;
+  flex-direction: column;;
+  background: white;
+}
+#single_property .property_main > .image{
+  position: relative;
+  width: 100%;
+}
+#single_property .property_main > .image img{
+  width: 100%;
+}
+#single_property .overlay{
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: calc(100% - 3px);
+  opacity: 0;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  font-size: 1.5em;
+}
+#single_property .overlay, #single_property .overlay i{
+  color: white;
+}
+#single_property .overlay > span{
+  display: inline-block;
+}
+#single_property .overlay:hover{
+  opacity: 1;
+}
+#single_property .overlay .location{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+#single_property .overlay .location i{
+  display: block;
+  padding: 5px 25px;
+  border: solid 1px white;
+  transition: 0.4s;
+}
+#single_property .overlay .location i:hover{
+  background: white;
+  color: #333;
+}
+#single_property .information h1{
+  text-transform: uppercase;
+  font-size: 2em;
+}
+#single_property .information{
+  padding: 35px 20px;
+  text-align: left;
+}
+#single_property .information .text{
+  width: 50%;
+}
+#single_property .information .text em{
+  font-family: 'Tajawal';
+}
+#single_property .map{
+  width: 49%;
+  height: 390px;
+}
+#single_property iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+#single_property .gallery {
+  padding: 20px;
+  flex-wrap: wrap;
+}
+#single_property .gallery .image{
+  width: 32%;
+  display: block;
+}
+#single_property .gallery::after{
+   content: '';
+   width: 32%;
+}
+#single_property .gallery .image img{
+  width: 100%;
+  height: auto;
+}
+#single_property .button{
+  display: block;
+  padding: 5px 10px;
+}
+
+/* AGENTS STYLES */
+#agents{
+  background: #eee;
+}
+#agents .agents_list{
+  width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  flex-wrap: wrap;
+}
+#agents .agent{
+  width: 45%;
+  margin-bottom: 50px;
+  padding: 30px 10px;
+  background: white;
+  box-shadow: 0px 15px 15px -10px #ccc;
+}
+#agents .agent .image{
+  width: 60%;
+  margin: 0 auto;
+  height: auto;
+}
+#agents .agent .image img{
+  width: 100%;
+  border-radius: 50%;
+}
+#agents .agent .text h1{
+  font-family: 'Roboto';
+  font-size: 1.8em;
+  padding: 10px 0;
+}
+#agents .agent .text > p{
+  padding: 20px 60px;
+}
+#agents .agent .text a{
+  padding: 5px 10px;
+}
+
+/* ABOUT THE COMPANY STYLES */
+#company {
+  background: #eee;
+}
+#company .timeline {
+  margin: 0 auto;
+  width: 1100px;
+  position: relative;
+  flex-wrap: wrap;
+  padding-bottom: 100px;
+}
+#company .basic_info{
+  width: 800px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+#company .info{
+  width: 45%;
+  height: 200px;
+  text-align: left;
+}
+#company .info:nth-child(even){
+  margin-top: 180px;
+  text-align: right;
+}
+#company .info .header{
+  font-size: 3em;
+  text-transform: uppercase;
+}
+#company .info .icon{
+  font-size: 7em;
+  padding: 10px 20px;
+  color: #526979;
+}
+#company .hidden {
+  opacity: 0;
+}
+#company .line{
+  height: 85%;
+  width: 5px;
+  top: 50px;
+  background: linear-gradient(#ccc, #526979);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: absolute;
+  box-shadow: 5px 5px 15px 0px #ccc;
+}
+#company .date{
+  display: inline-block;
+  padding: 0px 5px;
+  font-family: 'Roboto';
+  margin-bottom: 120px;
+  margin-top: 35px;
+  background: #333;
+  color: white;
+}
+#company .date:nth-child(even){
+  margin-left: -100px;
+}
+#company .date:nth-child(odd){
+  margin-left: 15px;
+}
+
+/* CONTACT STYLES */
+#contact{
+  background: #eee;
+}
+#contact .question{
+  font-family: 'Tajawal';
+  font-weight: 400;
+  text-transform: uppercase;
+}
+#contact .contact_list {
+  margin: 0 auto;
+  padding: 30px 0;
+}
+#contact .contact_list i{
+  font-size: 4em;
+  color: #526979;
+  display: inline-block;
+  margin: 0px 20px;
+  transition: 0.4s;
+}
+#contact .contact_list .link:hover i{
+  color: #333;
+}
+#contact .message{
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+#contact .message .inputs{
+  width: 49%;
+  text-align: left;
+}
+#contact .message .inputs label{
+  font-family: 'Tajawal';
+  display: block;
+  padding: 5px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#contact .message input, #contact .message textarea{
+  min-width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  background: white;
+  border: none;
+  border-radius: 3px;
+}
+#contact .message textarea{
+  min-height: 235px;
+  max-height: 350px;
+}
+#contact .message .button{
+  margin-top: 25px;
+  padding: 5px 18px;
+  margin-right: 20px;
+}
+#contact iframe{
+  margin-top: 10px;
+  width: 100%;
+  height: 600px;
+  border: 0;
+  filter: grayscale(0.5);
+}
+
+/* FOOTER STYLES */
+#footer{
+  font-family: 'Tajawal';
+  background: white;
+  padding-top: 25px;
+  text-align: left;
+  font-size: 0.9em;
+}
+.home #footer{
+  margin-top: 100px;
+  background: #eee;
+}
+#footer .footer_box{
+  width: 800px;
+  margin: 0 auto;
+}
+#footer .header{
+  font-family: 'Roboto';
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #526979;
+}
+#footer .sitemap, #footer .social {
+  width: 200px;
+}
+#footer .information{
+  width: 30%;
+}
+#footer .sitemap ul{
+  display: inline-block;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+#footer .fa-caret-right{
+  font-size: 0.7em;
+  padding-left: 10px;
+}
+#footer .sitemap ul li{
+  padding: 2px 0;
+}
+#footer a:hover{
+  color: #526979;
+}
+#footer .toggle{
+  display: inline-block;
+  cursor: pointer;
+}
+#footer .information .cookies_option{
+  font-size: 0.9em;
+}
+#footer .social ul li{
+  font-size: 2em;
+  padding: 10px 0;
+}
+#footer .other{
+  padding: 20px 0px 20px 0;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+@media only screen and (min-height: 2500px){
+  #banner{
+    max-height: 1000px;
+  }
+}
+@media print{
+  #menu, #footer{
+      display: none;
+  }
+  #banner{
+    height: 50vh;
+  }
+  #menu + section{
+    margin: 0;
+  }
+
+}

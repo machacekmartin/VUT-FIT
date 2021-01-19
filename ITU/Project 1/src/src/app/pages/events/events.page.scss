@@ -1,0 +1,89 @@
+@import "../../colors.scss";
+
+.events{
+    padding: 0 25px;
+    .qr-manually{
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        .input{
+            width: 100%;
+            padding: 15px 50px 15px 50px;
+            border: none;
+            background: $very-light-gray;
+            border-radius: 15px;
+            color: $gray;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .input::placeholder{
+            color: $light-gray;
+        }
+        .icon{
+            color: $gray;
+            position: absolute;
+            font-size: 25px;
+            left: 15px;
+        }
+        .validate{
+            width: 55px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            border-radius: 15px;
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $gray;
+        }
+    }
+    .events-list{
+        padding-top: 25px;
+        .event{
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            height: 105px;
+            box-shadow: 0px 4px 15px -4px $gray;
+            .image{
+                height: 100%;
+                width: 90px;
+                object-fit: cover;
+            }
+            .info{
+                padding: 15px;
+                height: 100%;
+                width: 100%;
+                justify-content: space-between;
+                .name{
+                    font-weight: bold;
+                }
+                .place{
+                    font-size: 12px;
+                    color: $dark-gray;
+                    align-items: center;
+                    .icon{
+                        margin-left: 6px;
+                        font-size: 16px;
+                    }
+                }
+                .bottom-info{
+                    justify-content: space-between;
+                    width: 100%;
+                    font-size: 13px;
+                    font-weight: bold;
+                    color: $dark-gray;
+                    .date{
+                        align-items: center;
+                        .icon{
+                            margin-right: 6px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+Author: Martin Machacek (xmacha73)
+Project: ISA
+
+This program does WHOIS & DNS lookup
+WHOIS lookup searches for all available data about the address (doesnt modify it, takes it as it is) from given whois server,
+and then it deletes the 'not needed' information.
+DNS lookup takes the input exactly as the user inputs it and does a dns query for given domain.
++ Added -f switch
++ Added -o switch
++ Bonus -d argument
+
+This program doesnt remove 'www' from given address, it realies on the users knowledge of used 
+whois servers and its rules & ways of giving information.
+
+Program has 5 arguments/options/switches:
+        -q <IP|hostname>         (compulsory)
+                <IP|hostname> = IP address or hostname of desired domain address
+                f.e.    -q seznam.cz
+                        -q www.google.com
+                        -q 77.75.75.172
+
+        -w <IP|hostname>         (compulsory)
+                <IP|hostname> = IP address or hostname of desired whois server
+                f.e.    -w whois.ripe.net
+                        -w whois.arin.net
+                        -w whois.iana.org
+
+        -d <IP>                 (optional)
+                <IP> =  IP address of desired DNS for DNS Lookup, IT DOESNT WORK WITH IPv6!!!
+                f.e.    -d 8.8.8.8
+
+        -f                      (optional)
+                If user wants unmodified whois information, then this switch will
+                disable the output modifier and user will get clean, unmodified server response.
+
+        -o                      (optional)
+                If user wants to get whois information only from the first IP address
+                on given -q domain.
+
+These arguments do not have special order rules.
+Final run command can look f.e. like this:
+         ./isa-tazatel -w whois.ripe.net -q seznam.cz -o
+         ./isa-tazatel -w 193.0.6.135 -q www.google.com -f
+         ./isa-tazatel -w whois.ripe.net -q 2a02:598:4444:1::1 -d 8.8.8.8
+

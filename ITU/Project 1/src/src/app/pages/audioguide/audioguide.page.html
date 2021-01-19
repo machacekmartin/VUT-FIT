@@ -1,0 +1,20 @@
+<ul id ="menu" class="flex-row" >
+  <li (click)="goBack()" class="back">
+    <span></span>
+    <span></span>
+  </li>
+  <li class=""></li>
+</ul>
+<section class="audioguide flex-column">
+  <div class="kind-img" [ngStyle]="{'background-image': 'url(../../' + animalKind['image'] + ')'}"></div>
+  <ul class="kinds">
+    <li *ngFor="let kind of animalKinds"></li>
+  </ul>
+  <h1 class="heading">{{animalKind.type}}</h1>
+  <h6 class="story">{{animalKind.story}}</h6>
+
+  <div class="audio-controls flex-row">
+    <div *ngIf="!(isPlaying())" class="button toggle" (click)="togglePlay()">></div>
+    <div *ngIf="isPlaying()" class="button toggle" (click)="togglePlay()">I I</div>
+  </div>
+</section>

@@ -1,0 +1,140 @@
+@import "../../colors.scss";
+
+.animal-kind{
+    padding: 0 25px;
+    border-radius: 0 0 35px 35px;
+    box-shadow: 0 5px 13px -8px $gray;
+    .map-location{
+        position: absolute;
+        width: 100%;
+        height: 250px;
+        border-radius: 0 0 35px 35px;
+        background: url('../../../assets/images/map-path.png');
+        background-size:cover;
+        background-position: center;
+        top: 0;
+        left: 0;
+        box-shadow: 0 5px 13px -8px $dark-gray;
+    }
+    .animal-pack{
+        justify-content: space-between;
+        position: relative;
+        padding-bottom: 30px;
+        margin-top: 85px;
+        .kind{
+            display: flex;
+            flex-flow: column;
+            .header{
+                letter-spacing: 1px;
+            }
+            .info{
+                margin-top: 5px;
+                p{
+                    line-height: 30px;
+                    span{
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+        .image{
+            background: $gray;
+            background-position:center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        .play-button{
+            display: flex;
+            width: 65px;
+            height: 65px;
+            position: absolute;
+            background: $dark-gray;
+            box-shadow: 0px 5px 10px -2px $gray;
+            border-radius: 100%;
+            top: 56px;
+            right: 10px;
+            justify-content: center;
+            align-items: center;
+            .play-icon{
+                width: 0;
+                height: 0;
+                border-top: 13px solid transparent;
+                border-left: 18px solid white;
+                border-bottom: 13px solid transparent;
+                margin-left: 6px;
+            }
+            .resume{
+                border-left-color: $light-green;
+            }
+            .pause{
+                width: 18px;
+                height: 20px;
+                border-left: solid 4px white;
+                border-right: solid 4px white;
+            }
+        }
+    } 
+}
+.concrete-animals{
+    height: 100%;
+    padding: 0 25px 25px 25px;
+    margin-top: -35px;
+    padding-top: 35px;
+    z-index: -1;
+    .heading{
+        padding: 25px 0 15px 0;
+    }
+    .concrete-list{
+        .item{
+            padding: 10px 0;
+            border-bottom: solid 1px $light-gray;
+            align-items:center;
+            height: 85px;
+            .image{
+                width: 65px;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 15px;
+                margin-right: 15px;
+            }
+        }
+        .item:last-child{
+            border-bottom: none;
+        }
+        .concrete-animal-info{
+            height: 100%;
+            width: 100%;
+            justify-content: flex-start;
+            position: relative;
+            .basic{
+                justify-content: space-between;
+                .gender{
+                    color: $gray;
+                }
+            }
+            .age{
+                display: block;
+                margin: 5px 0;
+            }
+            .play-sound{
+                width: 32px;
+                height: 32px;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                border: solid 2px $gray;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 23px;
+                color: $gray;
+            }
+        }
+
+    }
+}

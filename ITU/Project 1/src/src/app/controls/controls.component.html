@@ -1,0 +1,29 @@
+<div id="audio-controls" class="flex-row" [class.expanded]="expanded==true">
+
+    <div class="expand" (click)="toggleExpanded()"><div class="icon"></div></div>
+
+    <div class="info flex-row">
+        <div class="image" [ngStyle]="{'background-image': 'url(../../' + this.getCurrentKind().image + ')'}" (click)="togglePlaying()">
+            <div class="toggle" *ngIf="isPlaying()" >
+                <div class="pause"></div>
+            </div>
+            <div class="toggle" *ngIf="!isPlaying()">
+                <div class="resume"></div>
+            </div>
+        </div>
+        <div class="text" *ngIf="this.getCurrentKind()">
+            <h4>{{this.getCurrentKind().type}}</h4>
+            <p class="story">{{this.getCurrentKind().story}}</p>
+        </div>
+    </div>
+    <ion-icon class="stop"  name="square" (click)="stopPlaying()"></ion-icon>
+    <div class="next-prev-stop">
+        <div class="button" (click)="playPrevious()">
+            <ion-icon name="skip-backward"></ion-icon>
+        </div>
+        <ion-icon class="stop"  name="square" (click)="stopPlaying()"></ion-icon>
+        <div class="button" (click)="playNext()">
+            <ion-icon name="skip-forward"></ion-icon>
+        </div>
+    </div>
+</div>

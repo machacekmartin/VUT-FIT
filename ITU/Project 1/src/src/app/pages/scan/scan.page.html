@@ -1,0 +1,26 @@
+<ul id ="menu" class="flex-row" >
+  <li (click)="goBack()" class="back">
+    <span></span>
+    <span></span>
+  </li>
+  <li class=""></li>
+</ul>
+<section class="scan" [class.controls-active]="this.playerService.isPlayerReady()">
+  <h1 class="header">Scan QR Code</h1>
+
+  <div class="qr-manually">
+    <div class="icon"></div>
+    <input type="number" class="input" placeholder="enter code manually">
+    <div class="validate">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+    </div>
+  </div>
+  <h5 class="or">or</h5>
+  <div class="qr-scan flex-column">
+    <img src="../../../assets/images/qr-img.png" alt="" class="img">
+    <h4 class="scan-header">Start scanning</h4>
+    <p class="scan-info">This will let you scan the qr code using the camera in your smartphone</p>
+    <button class="button">Scan the qr code</button>
+  </div>
+  
+</section>

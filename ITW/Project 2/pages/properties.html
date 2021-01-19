@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- SILENCE SHOULD BE A NICE THING HERE -->
+    <!-- MARTIN MACHÁČEK - XMACHA73 - ITW projekt2 -->
+    <title>M's Housing RE</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../scripts/menu_scroll.js" charset="utf-8"></script>
+    <script src="../scripts/onclick.js" charset="utf-8"></script>
+    <script src="../scripts/sorting.js" charset="utf-8"></script>
+    <script src="../scripts/jquery_cookie.js" charset="utf-8"></script>
+    <script src="../scripts/cookie_custom.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Roboto:900|Tajawal" rel="stylesheet">
+  </head>
+  <body>
+    <section id="menu">
+      <div class="menu_links">
+          <a href="http://whyhellothere.cz/itw" class="logo">
+            <h1>M's<br>Housing</h1>
+            <h4>Real Estate</h4>
+          </a>
+          <a href="http://whyhellothere.cz/itw" class="logo_scrolled">
+            <h1>M's H</h1>
+          </a>
+          <ul class="main_nav">
+            <li><a href="http://whyhellothere.cz/itw">Home</a></li>
+            <li><a href="agents.html">Agents</a></li>
+            <li class="dropdown">
+              Properties
+              <ul>
+                <li><a href="properties.html">All</a></li>
+                <li><a href="properties_sale.html">For Sale</a></li>
+                <li><a href="properties_rent.html">For Rent</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              About us
+              <ul>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </section>
+    <section id="properties">
+      <header>
+        <h1>Available Properties</h1>
+      </header>
+      <div class="box options">
+        <div class="properties_links">
+          <h3>
+            <a href="properties.html">All</a>
+            <a href="properties_sale.html">For Sale</a>
+            <a href="properties_rent.html">For Rent</a>
+          </h3>
+        </div>
+        <div class="sorting_options">
+          <h3>Sort by: </h3>
+          <select class="price-sorting">
+            <option value="default">Default</option>
+            <option value="lowest">Lowest Price</option>
+            <option value="highest">Highest Price</option>
+          </select>
+        </div>
+      </div>
+      <ul class="box sorting_list">
+        <li class="item" data-price="480000" data-default="1">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_6.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">480 000 €</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="335590" data-default="2">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_7.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">335 590 €</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="440560"  data-default="3">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_3.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">440 560 €</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="550120" data-default="4">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_8.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">550 120 €</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="200000"  data-default="5">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_5.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>asdasddasads</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">200 000 €</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="545800"  data-default="6">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_1.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">545 800 €</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="155400"  data-default="7">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_2.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">155 400 €</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="25000" data-default="8">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_6.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">25 000 € / month</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="31000" data-default="9">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_7.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">31 000 € / month</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="40000" data-default="10">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_8.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">40 000 € / month</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="20000"  data-default="11">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_5.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>asdasddasads</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">20 000 € / month</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="39000"  data-default="12">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_1.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">39 000 € / month</p>
+            </div>
+          </a>
+        </li>
+
+        <li class="item" data-price="15000"  data-default="13">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_2.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">15 000 € / month</p>
+            </div>
+          </a>
+        </li>
+        <li class="item" data-price="38650"  data-default="14">
+          <a href="single_property.html">
+            <div class="image">
+              <img src="../img/banner_3.jpg" alt="image">
+            </div>
+            <div class="description">
+              <span class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <h1>4059 Dr. Hollywood</h1>
+              <p>
+                Lorem ipsum dolor sit  amet, consectetur adipisicing
+                elit, sed do eiusmod tempor consectetur
+              </p>
+              <p class="price">38 650 € / month</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="footer">
+      <div class="box footer_box">
+        <div class="sitemap">
+          <h4 class="header">Navigation</h4>
+          <ul>
+            <li><a href="../index.html">Home<i class="fas fa-caret-right"></i></a></li>
+            <li><a href="agents.html">Agents<i class="fas fa-caret-right"></i></a></li>
+            <li><a href="properties.html">Properties<i class="fas fa-caret-right"></i></a></li>
+          </ul>
+          <ul>
+            <li><a href="about.html">Company<i class="fas fa-caret-right"></i></a></li>
+            <li><a href="contact.html">Contact<i class="fas fa-caret-right"></i></a></li>
+            <li><a href="../index.html">Something<i class="fas fa-caret-right"></i></a></li>
+          </ul>
+        </div>
+        <div class="information">
+          <h4 class="header">Information</h4>
+          <div class="toggle">
+             Privacy Policy
+            <i class="fas fa-caret-down"></i>
+          </div>
+          <p class="cookies_option">
+              Text about our Company,
+              Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit,
+              sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua.
+               Ut enim ad minim.
+          </p>
+        </div>
+        <div class="social">
+          <h4 class="header">Social Media</h4>
+          <ul class="box">
+            <li><a href="../index.html"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="../index.html"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="../index.html"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="../index.html"><i class="fab fa-google"></i></a></li>
+          </ul>
+
+        </div>
+      </div>
+      <div class="other">
+      <p>Copyright 2018 | Designed and Created by Martin Macháček</p>
+      </div>
+    </section>
+  </body>
+</html>

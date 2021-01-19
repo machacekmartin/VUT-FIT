@@ -1,0 +1,31 @@
+/* 
+  Author: Martin Machacek (xmacha73)
+  These are mainly styles, that dont apply to any special componeny, but are for components in the higher hierarchy level. (f.e. audio controlls)
+*/
+
+
+@import '../theme/fonts.scss';
+@import './colors.scss';
+
+ion-app{
+    font-family: 'Montserrat';
+    display: flex;
+    flex-flow: column;
+}
+ion-router-outlet{
+    position: relative;
+    height: 100%;
+}
+app-controls{
+    width: calc(100% - 50px);
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    transition: 0.3s;
+    opacity: 1;
+}
+app-controls.menuOpen{
+    opacity: 0;
+    pointer-events: none;
+
+}

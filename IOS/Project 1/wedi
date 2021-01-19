@@ -1,0 +1,239 @@
+#!/bin/sh
+#xmacha73 - IOS projekt 1 
+
+POSIXLY_CORRECT=yes
+
+### KONTROLA REALPATH, JESTLI EXISTUJE WEDI_RC, POPŘÍPADĚ JEHO VYTVOŘENÍ ###
+
+if hash realpath 2>/dev/null; then
+	true
+else
+	echo "ERROR - Špatná realpath">&2
+ 	exit 1
+fi
+
+if [ -z $WEDI_RC ]; then
+	echo "ERROR - není zadaná globální progměnná WEDI_RC">&2
+	exit 1
+
+fi
+if [ -f "$WEDI_RC" ]; then
+	true
+else
+ 	mkdir -p "$(dirname "$WEDI_RC")" && touch "$WEDI_RC"
+fi
+
+###### KONTROLA EDITORŮ ######
+
+if [ -z "$EDITOR" ]; then
+ 	if [ -z "$VISUAL" ]; then
+		EDITOR=vi
+	else
+		EDITOR=$VISUAL
+	fi
+fi
+
+### FUNKCE NA ZAPSÁNÍ INFORMACÍ DO SOUBORU V $WEDI_RC ###
+write_into_file(){
+	echo "$1---$(date +%Y-%m-%d)" >> $WEDI_RC
+}
+
+### FUNKCE NA POSLEDNÍ OTEVŘENÝ SOUBOR ###
+last_opened_file(){
+	last=$(grep $1 $WEDI_RC | grep "$1/[^/]*---" | tail -n 1 | awk -F"---" '{print $1}')	
+}
+
+
+######### CASE SWITCH #########
+
+case $# in
+
+###### ŽÁDNÝ ARGUMENT ######
+
+0) 	
+	path=$(realpath .)
+	logs=$(grep $path/[^/]*--- $WEDI_RC)			
+ 	last_opened_file $path
+	if [ -z "$last" ]; then
+		echo "ERROR - V této složce nebyl zatím editován žádný soubor">&2
+		exit 1
+	fi 												
+	$EDITOR $last
+	write_into_file $last 					
+;;
+
+###### JEDEN ARGUMENT ######
+
+1) 
+   ### POKUD JE PRVNÍ ARGUMENT SOUBOR ###
+   if [ -f "$1" ]; then
+	$EDITOR $(realpath $1)
+	write_into_file "$(realpath $1)"
+
+   ### POKUD JE PRVNÍ ARGUMENT SLOŽKA ###
+   elif [ -d "$1" ]; then
+	path=$(realpath $1) 					
+ 	logs=$(grep $path/[^/]*--- $WEDI_RC)
+	if [ -z "$logs" ]; then
+		echo "ERROR - V této složce nebyl zatím editován žádný soubor">&2
+		exit 1	
+	fi			
+	last_opened_file $path
+	$EDITOR $last
+	write_into_file $last
+
+   ### POKUD JE PRVNÍ ARGUMENT -m ###
+   elif [ "$1" = "-m" ]; then
+	path=$(realpath .) 
+ 	most_opened=$(grep $path/[^/]*--- $WEDI_RC| awk -F"---" '{print $1}'| sort | uniq -c| sort -r -h | head -n 1 | awk '{print $2}')
+	if [ -z "$most_opened" ]; then
+		echo "ERROR - V této složce nebyl zatím editován žádný soubor">&2
+		exit 1
+	fi
+	$EDITOR $most_opened
+	write_into_file $most_opened
+
+   ### POKUD JE PRVNÍ ARGUMENT -l ###
+   elif [ "$1" = "-l" ]; then
+	path=$(realpath .) 
+	logs=$(grep $path/[^/]*--- $WEDI_RC)
+	if [ -z "$logs" ]; then
+		echo "ERROR - V této složce nebyl zatím editován žádný soubor">&2
+		exit 1	
+	fi
+	echo  "$logs" |  sed 's/ /{$NL}/g' | sed 's/.\{13\}$//' | sed 's@.*/@@' | sort | uniq 
+   else
+	echo "ERROR - Špatně zadaný argument nebo špatně zadaná cesta k souboru/složce.">&2
+	exit 1
+   fi
+;;
+
+###### DVA ARGUMENTY ######
+
+2) 
+   ### POKUD JE DRUHÝ ARGUMENT SLOŽKA ###
+   if [ -d "$2" ]; then
+
+   	### POKUD JE PRVNÍ ARGUMENT -m ###
+	if [ "$1" = "-m" ]; then
+		path=$(realpath $2)
+		most_opened=$(grep $path/[^/]*--- $WEDI_RC| awk -F"---" '{print $1}'| sort | uniq -c| sort -r -h | head -n 1 | awk '{print $2}')
+		if [ -z "$most_opened" ]; then
+			echo "ERROR - V této složce nebyl zatím editován žádný soubor">&2
+			exit 1
+		fi
+		$EDITOR $most_opened
+		write_into_file $most_opened
+
+  	### POKUD JE PRVNÍ ARGUMENT -l ###
+	elif [ "$1" = "-l" ]; then
+		path=$(realpath $2)
+		logs=$(grep $path/[^/]*--- $WEDI_RC)
+		if [ -z "$logs" ]; then
+			echo "ERROR - V této složce nebyl zatím editován žádný soubor">&2
+			exit 1
+		fi
+ 		echo  "$logs" |  sed 's/ /{$NL}/g' | sed 's/.\{13\}$//' | sed 's@.*/@@' | sort | uniq  
+	else
+		echo "ERROR - Špatně zadané argumenty">&2
+		exit 1
+	fi
+  
+   ### POKUD DRUHÝ ARGUMENT NENÍ SLOŽKA A POKUD PRVNÍ ARGUMENT JE BUĎ -a NEBO -b ###
+   elif [ "$1" = "-a" ] || [ "$1" = "-b" ]; then
+  	datecheck=$(echo "$2" | grep '^[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]$') 
+   	if [ $? -eq 0 ]; then 	
+		path=$(realpath .)
+		date=$(echo "$2" | tr -d -)
+ 		logs=$(grep $path/[^/]*$ $WEDI_RC)	
+		if [ "$1" = "-a" ]; then
+			for log in $logs; do
+				item=$(echo $log | awk -F"---" '{print $2}' | tr -d -)
+ 				if [ $item -ge $date ]; then
+					item=$(echo $log | sed 's/.\{13\}$//' | sed 's@.*/@@')
+					item_array="${item_array}$item "
+				fi		
+	 		done
+		elif [ "$1" = "-b" ]; then 
+			for log in $logs; do
+				item=$(echo $log | awk -F"---" '{print $2}' | tr -d -)
+ 				if [ $item -le $date ]; then
+					item=$(echo $log | sed 's/.\{13\}$//' | sed 's@.*/@@')
+					item_array="${item_array}$item "
+				fi	
+	 		done
+		else 
+			echo "ERROR - První argument při zadávání adresy musí být -a nebo -b">&2
+			exit 1
+		fi
+		if [ -z "$item_array" ]; then
+			echo "ERROR - Nenašly se žádné soubory">&2
+			exit 1
+		fi
+		echo "$item_array" | tr " " "\n" | sed '$d' | sort | uniq
+   	else
+		echo "ERROR - Špatně zadaný argument">&2
+		exit 1
+	fi
+   else
+	echo "ERROR - Špatně zadaný argument">&2
+	exit 1
+   fi
+;;
+
+###### 3 ARGUMENTY ######
+
+3) 
+   ### POKUD PRVNÍ ARGUMENT JE -a NEBO -b ###
+   if [ "$1" = "-a" ] || [ "$1" = "-b" ]; then
+	if [ -d "$3" ]; then
+		datecheck=$(echo "$2" | grep '^[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]$')
+		if [ $? -eq 0 ]; then 	
+ 			path=$(realpath $3)
+			date=$(echo "$2" | tr -d -)
+ 			logs=$(grep $path/[^/]*$ $WEDI_RC)
+			if [ "$1" = "-a" ]; then
+				for log in $logs; do
+					item=$(echo $log | awk -F"---" '{print $2}' | tr -d -)
+ 					if [ $item -ge $date ]; then
+						item=$(echo $log | sed 's/.\{13\}$//' | sed 's@.*/@@')
+						item_array="${item_array}$item "
+					fi		
+	 			done
+			elif [ "$1" = "-b" ]; then 
+				for log in $logs; do
+					item=$(echo $log | awk -F"---" '{print $2}' | tr -d -)
+ 					if [ $item -lt $date ]; then
+						item=$(echo $log | sed 's/.\{13\}$//' | sed 's@.*/@@')
+						item_array="${item_array}$item "
+					fi	
+	 			done
+			else 
+				echo "ERROR - První argument při zadávání adresy musí být -a nebo -b">&2
+				exit 1
+			fi
+			if [ -z "$item_array" ]; then
+				echo "ERROR - Nenašly se žádné soubory">&2
+				exit 1
+			fi
+			echo "$item_array" | tr " " "\n" | sed '$d' | sort | uniq		
+		else
+			echo "ERROR - Špatně zadaný argument">&2
+			exit 1
+   		fi
+    	else
+		echo "ERROR - Špatně zadaný argument">&2
+		exit 1
+    	fi
+   else
+	echo "ERROR - Špatně zadaný argument">&2
+	exit 1
+   fi
+;;
+
+*) 
+   echo "ERROR - Špatně zadaný počet argumentů ">&2
+   exit 1
+
+;;
+esac

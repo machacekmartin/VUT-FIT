@@ -1,0 +1,4 @@
+xnesva06 100 (Makefile, Uživatelská dokumentace, mockup)
+xdolez82 100 (Kostra aplikace, Model, Instalátor)
+xgajdo22 100 (Matematická knihovna, testy, profiling)
+xmacha73 100 (GUI, Controller, Debugging)

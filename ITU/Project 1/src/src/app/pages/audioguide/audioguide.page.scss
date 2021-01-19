@@ -1,0 +1,53 @@
+@import "../../colors.scss";
+
+.audioguide{
+    padding: 5px 35px 20px 35px;
+    align-items: center;
+    text-align: center;
+    .kind-img{
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        box-shadow: 0px 5px 10px -2px $gray;
+        background-position: center;
+        background-size: cover;
+    }
+    .heading{
+       padding: 25px 10px;
+    }
+    .story{
+        padding: 0 25px;
+        position: relative;
+        font-size: 14px;
+    }
+    .story:before {
+        display: block;
+        content:'';
+        width:100%;
+        height:100%;    
+        position:absolute;
+        left:0;
+        bottom: 0;
+        background: linear-gradient(transparent 0px, white);
+    } 
+    .audio-controls{
+        align-items: center;
+        padding-top: 30px;
+        .button{
+            width: 45px;
+            height: 45px;
+            border-radius: 100%;
+            background: black;
+            margin: 20px;
+        }
+        .toggle{
+            width: 60px;
+            height: 60px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+    }
+}

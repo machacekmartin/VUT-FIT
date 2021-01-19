@@ -1,0 +1,55 @@
+
+Časový plán, rozdělení práce a další informace k 2. projektu z předmětu IVS
+
+Časový plán:
+    - Do 18.3. Vytvoření plánu, rozdělení práce, vytvoření repozitáře a Trella.
+
+    - Do 29.3. Matematická knihovna + testy,kostra programu, základy GUI, Makefile, debugging 
+    - Do 7.4. Instalátor, profiling, programová a uživatelská dokumentace
+    - Do 15.4. Mockup další verze UI, doladění problémů.
+    - Do 22.4. Kontrola a odevzdání hotových částí.
+
+    - Do 7.5. Sepsání problémů.
+
+
+Rozdělení práce:
+    - Marek Nesvadba (xnesva06):
+        - Tvorba plánu, založení a správa repozitáře a Trella
+        - Makefile
+        - Uživatelská dokumentace
+
+    - Zdeněk Doležal (xdolez82):
+        - Kostra aplikace
+        - Model
+        - Instalace
+
+    - David Gajdoš (xgajdo22):
+        - Matematická knihovna + testy
+        - Profiling
+
+    - Martin Macháček (xmacha73):
+        - GUI
+        - Controller
+        - Debugging
+
+    - Mockup další verze GUI a Doxygen dokumentace jsou společné pro všechny členy týmu.
+
+Komunikační kanály a nástroj pro plánování:
+    - Facebook a Discord pro domluvu a řešení případných nejasností.
+    - Trello pro přehledné rozdělení práce a termínů.
+    - V případě nutnosti známe telefonní čísla ostatních členů týmu.
+
+Systém pro správu verzí:
+    - Pro správu verzí používáme privátní repozitář na GitHubu: https://github.com/briskCZ/IVS-projekt-2 .
+    - Do toho repozitáře byl pozván i účet ivskontrola pro přístup vyučijícím/cvičícím.
+
+Technologie:
+    - Python 3
+    - PyQt
+
+Styl kódu:
+    - Qt standardy
+
+    - Odsazování: 4 mezery
+    - Konce řádků: LF
+    - Názvy: camelCase

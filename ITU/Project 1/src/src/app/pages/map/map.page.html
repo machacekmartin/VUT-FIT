@@ -1,0 +1,35 @@
+<ul id ="menu" class="flex-row" >
+    <li (click)="goBack()" class="back">
+      <span></span>
+      <span></span>
+    </li>
+    <li class="compass"></li>
+</ul>
+<section class="map">
+    <ul class="filters-list flex-row" [class.playing]="isPlayerReady() == true">
+        <li class="item">
+          <ion-icon name="paw" class="icon"></ion-icon>
+        </li>
+        <li class="item">
+          <ion-icon name="restaurant" class="icon"></ion-icon>
+        </li>
+        <li class="item">
+          <ion-icon name="eye" class="icon"></ion-icon>
+        </li>
+        <li class="item">
+            <ion-icon name="happy" class="icon"></ion-icon>
+        </li>
+      </ul>
+    <ul>
+      <li class="animal flex-column" *ngFor="let animal of animalKinds">
+        <div [ngStyle]="{'background-image': 'url(../../' + animal.image + ')'}" class="image-animal">
+          <div class="button play" *ngIf="!isThisKindActive(animal.type, animal.audio)" (click)="playAudioByKind(animal.type, animal.audio)"></div>
+          <div class="button play resume" *ngIf="isThisKindActive(animal.type, animal.audio) && !isPlayingAudio()" (click)="toggleAudio()"></div>
+          <div class="button pause" *ngIf="isThisKindActive(animal.type, animal.audio) && isPlayingAudio()" (click)="toggleAudio()"></div>
+        </div>
+        <ion-icon name="pin" class="icon"></ion-icon>
+        
+      </li>
+    </ul>
+</section>
+  

@@ -1,0 +1,26 @@
+/* Basic styles for  */
+
+*, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none !important;
+}
+ul{
+    list-style-type: none;
+}
+.flex-row{
+    display: flex;
+    flex-flow: row;
+}
+.flex-column{
+    display: flex;
+    flex-flow: column;
+}
+h1.header{
+    font-size: 30px;
+    font-weight: 700;
+}
+.controls-active{
+    padding-bottom: 140px !important;
+}

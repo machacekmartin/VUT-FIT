@@ -1,0 +1,50 @@
+VUT FIT Projekt IPK è. 2 
+Varianta OMEGA: Scanner síovıch slueb
+Autor:	Martin Macháèek
+Login:	xmacha73
+
+Obecné informace o aplikaci 
+  	- Funguje jako TCP a/nebo UDP scanner pro zadané IP adresy a jejich porty
+	- Pouitı programovací jazyk: C++
+
+Pøeklad & Spuštìní
+	Projekt lze pøeloit pøíkazem make
+	Pro pøeklad projektu je nutné mít nainstalovanı g++ pøekladaè
+	Aplikace lze spustit následujícími pøíkazy: 
+	
+	./ipk-scan -help	
+		- vypíše nápovìdu pro aplikaci. Tento argument se nesmí kombinovat s ostatními.
+
+	NEBO 
+
+	sudo ./ipk-scan {-i <interface>} -pu <port-ranges> -pt <port-ranges> [<domain-name> | <IP-address>]
+	kde
+		
+		ipk-scan 		
+			je vygenerovanı soubor pøíkazem make
+
+		{-i <interface>} 		
+			je volitelnı pøíkaz pro volbu síového rozhraní, pod kterım se bude odesílat / pøijímat paket
+			a <interface> je název zvoleného rozhraní, pøi nepøítomnosti se zvolí první IEEE 802 interface s neloopbackovou IP adresou
+
+		-pt <port-ranges> 	
+			je pøíkaz pro vymezení portù pro TCP skenování
+
+		-pt <port-ranges> 	
+			je pøíkaz pro vymezení portù pro UDP skenování
+
+		[<domain-name> | <IP-address>]	
+			je název domény nebo IP adresa, kterou bude aplikace skenovat	
+
+					
+Pravidla pro volbu portù
+	- <port-ranges> porty musí bıt zvoleny v rozmezí 0-65535
+	- <port-ranges> porty se zadávají v následujícím formátu (konkrétní èísla jsou pouze uvedena jako pøíklad)
+		80-900		nebo	1,50,60,80,900,655	nebo	5
+
+Omezení aplikace
+	Tato aplikace bohuel nepodporuje IP adresy verzi 6, ale pouze IP adresy verze 4, a to z dùvodu nedostatku èasu
+			
+
+	
+	

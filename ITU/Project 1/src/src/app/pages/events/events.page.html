@@ -1,0 +1,40 @@
+<ul id ="menu" class="flex-row" >
+  <li routerLink="/home" class="back">
+    <span></span>
+    <span></span>
+  </li>
+  <li class=""></li>
+</ul>
+<section class="events" [class.controls-active]="this.playerService.isPlayerReady()">
+    <h1 class="header">Upcoming events</h1>
+    <div class="qr-manually">
+      <ion-icon name="ios-happy" class="icon"></ion-icon>
+      <input class="input" placeholder="search event name" type="text">
+      <div class="validate">
+        <ion-icon name="search"></ion-icon>
+      </div>
+    </div>
+    <div class="events-list flex-column">
+      <div class="event flex-row" *ngFor="let event of events" (click)="setLastClickedEvent(event.name)" routerLink="/event">
+        <img src="{{event.image}}" alt="" class="image">
+        <div class="info flex-column">
+            <h5 class="name">{{ event.name }}</h5>
+            <div class="place flex-row">
+                <p >{{ event.place }}</p>
+                <ion-icon name="pin" class="icon"></ion-icon>
+            </div>
+
+            <div class="bottom-info flex-row">
+              <div class="flex-row date">
+                  <ion-icon name="calendar" class="icon"></ion-icon>
+                  <p class="date">{{ event.date }}</p>
+              </div>
+              
+              <p class="time">{{ event.time }}</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+</section>

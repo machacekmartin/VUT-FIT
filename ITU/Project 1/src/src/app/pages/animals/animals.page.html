@@ -1,0 +1,22 @@
+<ul id ="menu" class="flex-row" >
+  <li routerLink="/home" class="back">
+    <span></span>
+    <span></span>
+  </li>
+  <li class=""></li>
+</ul>
+<section class="animals" [class.controls-active]="this.playerService.isPlayerReady()">
+  <h1 class="header">Animals in our Zoo</h1>
+  <div class="qr-manually">
+    <ion-icon name="paw" class="icon"></ion-icon>
+    <input class="input" placeholder="search animal kind" type="text">
+    <div class="validate">
+      <ion-icon name="search"></ion-icon>
+    </div>
+  </div>
+  <ul class="animals-block flex-row">
+    <li *ngFor="let kind of animals" [ngStyle]="{'background-image': 'url(../../' + kind.image + ')'}" routerLink="/animal-kind" (click)="setAnimalKind(kind.type)">
+      <h5 class="heading">{{kind.type}}</h5>
+    </li>
+  </ul>
+</section>

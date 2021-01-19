@@ -1,0 +1,7 @@
+{
+  "name": "Zoo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

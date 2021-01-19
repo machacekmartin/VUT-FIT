@@ -1,0 +1,33 @@
+/* Global menu styles - is used on every page */
+
+#menu{
+    width: 100%;
+    display: flex;
+    padding: 25px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    .back{
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 25px;
+        width: 25px;
+        span{
+            background: black;
+            width: 13px;
+            height: 2px;
+            display: block;
+            position: absolute;
+        }
+        span:first-child{
+            transform:rotate(-40deg);
+            margin-top: -4px;
+    
+        }
+        span:last-child{
+            transform:rotate(40deg);
+            margin-top: 4px;
+        }
+    }
+}

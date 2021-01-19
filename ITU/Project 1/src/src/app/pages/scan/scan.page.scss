@@ -1,0 +1,95 @@
+@import "../../colors.scss";
+
+.scan{
+    padding: 0 25px;
+    .qr-manually{
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        .input{
+            width: 100%;
+            padding: 15px 60px 15px 45px;
+            border: none;
+            background: $very-light-gray;
+            border-radius: 15px;
+            color: $gray;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .input::placeholder{
+            color: $light-gray;
+        }
+        .icon{
+            border: solid 2px $gray;
+            position: absolute;
+            width: 15px;
+            height: 17px;
+            display: flex;
+            align-items: center;
+            left: 15px;
+        }
+        .icon:after{
+            display: block;
+            content: "";
+            width: 18px;
+            height: 3px;
+            background: $very-light-gray;
+            position: absolute;
+            right: -5.5px;
+            border: solid 2px $gray;
+            box-shadow: 0 0 0 2px $very-light-gray;
+        }
+        .validate{
+            width: 55px;
+            height: 100%;
+            position: absolute;
+            background: $weird-bg;
+            right: 0;
+            border-radius: 15px;
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+    }
+    .or{
+        padding: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .qr-scan{
+        align-items: center;
+        box-shadow: 0 -8px 15px -8px $gray;
+        border-radius: 25px;
+        padding-top: 25px;
+        margin-bottom: 25px;
+        .img{
+            width: 150px;
+            height: 150px;
+        }
+        .scan-header{
+            font-weight: bold;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+        .scan-info{
+            padding: 0 40px;
+            text-align: center;
+            font-size: 14px;
+            color: gray;
+        }
+        .button{
+            margin-top: 35px;
+            padding: 15px 35px;
+            border-radius: 20px;
+            background: $weird-bg;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+
+    }
+}

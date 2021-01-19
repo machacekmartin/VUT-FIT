@@ -1,0 +1,32 @@
+<div id="side-menu" class="flex-column">
+    <div class="menu-header">
+        <h5 class="project-name">ITU Project - Zoo Audioguide</h5>
+        <p class="authors">xgajdo22 | xmacha73 | xtramp00</p>
+    </div>
+    <ul class="menu-items">
+        <li class="item flex-row" routerLink="/animals" (click)="toggleMenu()">
+            <ion-icon name="paw" class="icon"></ion-icon>
+            <p>Our Animals</p>
+            </li>
+        <li class="item flex-row" routerLink="/events" (click)="toggleMenu()">
+            <ion-icon name="ios-happy" class="icon"></ion-icon>
+            <p>Events in the Zoo</p>
+        </li>
+        <li class="item flex-row" routerLink="/map" (click)="toggleMenu()">
+            <ion-icon ios="ios-map"  md="md-map" class="icon"></ion-icon>
+            <p>Zoo map</p>
+        </li>
+        <li class="item flex-row" routerLink="/history" (click)="toggleMenu()">
+            <ion-icon name="time" class="icon"></ion-icon>
+            <p>History</p>
+        </li>
+        <li class="item flex-row" (click)="toggleMenu()">
+            <ion-icon name="contact" class="icon"></ion-icon>
+            <p>Contact</p>
+        </li>
+        <li class="item flex-row" (click)="toggleMenu()">
+            <ion-icon name="help" class="icon"></ion-icon>
+            <p>Help</p>
+        </li>
+    </ul>
+</div>

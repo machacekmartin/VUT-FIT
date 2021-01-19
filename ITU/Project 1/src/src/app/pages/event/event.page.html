@@ -1,0 +1,48 @@
+<ul id ="menu" class="flex-row" >
+    <li (click)="goBack()" class="back">
+      <span></span>
+      <span></span>
+    </li>
+    <li class="compass"></li>
+</ul>
+<section class="event" [class.controls-active]="this.playerService.isPlayerReady()">
+  <div class="event-block flex-column">
+      <img src="{{ event.image }}" alt="" class="image">
+      <div class="content">
+          <h2 class="name">{{ event.name }}</h2>
+          <div class="place flex-row" routerLink="/map">
+              <p >{{ event.place }}</p>
+              <div class="show flex-row">
+                <p>show on map</p>
+                <ion-icon name="pin" class="icon"></ion-icon>
+              </div>
+          </div>
+          <div class="date-time flex-row">
+            <div class="item date">
+                <p class="head">Date</p>
+                <div class="flex-row">
+                  <ion-icon name="calendar" class="icon"></ion-icon>
+                  <p>{{event.date}}</p>
+                </div>
+            </div>
+            <div class="item time">
+                <p class="head">Time</p>
+                <div class="flex-row">
+                    <ion-icon name="time" class="icon"></ion-icon>
+                    <p>{{event.time}}</p>
+                </div> 
+            </div>
+          </div>
+          <div class="description">
+            <p class="head">Event description</p>
+            <p class="desc">
+              {{ event.description }}
+            </p>
+          </div>
+          
+      </div>
+     
+
+  </div>
+  
+</section>

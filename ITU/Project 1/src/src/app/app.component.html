@@ -1,0 +1,6 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+  <app-controls  [class.menuOpen]="getIsMenuOpen()==true" *ngIf="this.playerService.isPlayerReady()"></app-controls>
+
+  
+</ion-app>
